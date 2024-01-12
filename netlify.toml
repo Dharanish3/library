@@ -1,0 +1,18 @@
+# netlify.toml
+
+[build]
+  publish = "/build"  # Set the build output directory
+  command = "npm run build"
+  base = '/'
+  # Specify the build command
+
+[[redirects]]
+  from = "/*"  # Redirect all unmatched paths
+  to = "/index.html"  # Redirect to the main entry point (adjust based on your setup)
+  status = 200  # Use a 200 status code
+
+[headers]
+  # Define custom headers if needed
+  # Example: Cache static assets for 1 day
+  "/*"
+  Cache-Control = "public, max-age=86400"
